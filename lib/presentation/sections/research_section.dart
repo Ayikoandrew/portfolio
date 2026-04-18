@@ -28,7 +28,7 @@ class ResearchSection extends StatelessWidget {
                 const SectionTitle(
                   title: 'Research',
                   subtitle:
-                      'Current research at the intersection of AI and agriculture.',
+                      'Current research applying AI to real-world challenges.',
                 ),
                 LayoutBuilder(
                   builder: (context, constraints) {
@@ -55,22 +55,25 @@ class ResearchSection extends StatelessWidget {
                       );
                     }
 
-                    return GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: crossAxisCount,
-                        childAspectRatio: 1.1,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                      ),
-                      itemCount: AppConstants.researchItems.length,
-                      itemBuilder: (context, i) => AnimateOnVisible(
-                        delay: Duration(milliseconds: 120 * i),
-                        child: _ResearchCard(
-                          item: AppConstants.researchItems[i],
-                        ),
-                      ),
+                    return Wrap(
+                      spacing: 20,
+                      runSpacing: 20,
+                      children: [
+                        for (
+                          var i = 0;
+                          i < AppConstants.researchItems.length;
+                          i++
+                        )
+                          SizedBox(
+                            width:
+                                (constraints.maxWidth -
+                                    20 * (crossAxisCount - 1)) /
+                                crossAxisCount,
+                            child: _ResearchCard(
+                              item: AppConstants.researchItems[i],
+                            ),
+                          ),
+                      ],
                     );
                   },
                 ),
@@ -153,14 +156,7 @@ class _ResearchCardState extends State<_ResearchCard> {
               Text(widget.item.title, style: theme.textTheme.titleLarge),
               const SizedBox(height: 10),
 
-              Expanded(
-                child: Text(
-                  widget.item.description,
-                  style: theme.textTheme.bodySmall,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
+              Text(widget.item.description, style: theme.textTheme.bodySmall),
               const SizedBox(height: 14),
 
               // Tags
