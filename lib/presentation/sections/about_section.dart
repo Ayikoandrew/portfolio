@@ -165,8 +165,6 @@ class _InterestCardState extends State<_InterestCard> {
                   Text(
                     widget.item.description,
                     style: theme.textTheme.bodySmall,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
