@@ -9,8 +9,8 @@ abstract final class AppConstants {
   static const name = 'Ayiko Andrew';
   static const tagline = 'AI Researcher & Developer';
   static const heroSubtitle =
-      'MSc Artificial Intelligence student exploring the intersection '
-      'of AI, agriculture, and computer vision to build impactful solutions.';
+      'ML Engineer & MSc AI candidate - I explore language, vision, and '
+      'intelligent systems, then build them into products that create real impact. Also I love food from its preparation to presentation.';
 
   static const navItems = [
     'Home',
@@ -24,7 +24,7 @@ abstract final class AppConstants {
 
   static const aboutText =
       'MSc candidate in Artificial Intelligence with a background in Computer Science. '
-      'I specialize in applying machine learning to high-impact domains — '
+      'I specialize in applying machine learning to high-impact domains - '
       'from climate-aware agricultural modeling to computer vision and NLP.\n\n'
       'Current focus: using reinforcement learning to build adaptive crop calendars '
       'that help farmers respond to shifting rainfall patterns. '
@@ -59,28 +59,36 @@ abstract final class AppConstants {
 
   static const researchItems = [
     ResearchItem(
-      icon: Icons.water_drop,
-      title: 'Rainfall Prediction',
+      icon: Icons.agriculture,
+      title: 'AI-Driven Agricultural Decision Support',
       description:
-          'Developing machine learning models to predict rainfall patterns, '
-          'enabling farmers to make informed planting decisions and mitigate crop loss.',
-      tags: ['Time Series', 'Deep Learning', 'Climate Data'],
+          'Developing an integrated ML pipeline that combines time series deep learning '
+          'for rainfall prediction with reinforcement learning for sequential crop decisions - '
+          'the agent monitors soil moisture and crop stress to recommend what to plant '
+          'as rainfall patterns emerge, helping smallholder farmers act at the right '
+          'moment with the right crop.',
+      tags: [
+        'Deep Learning',
+        'Reinforcement Learning',
+        'Time Series',
+        'AgriTech',
+      ],
     ),
+
     ResearchItem(
-      icon: Icons.calendar_month,
-      title: 'Crop Calendar Optimization',
+      icon: Icons.coronavirus,
+      title: 'Ensemble Methods for Real-Time Disease Outbreak Prediction',
       description:
-          'Optimizing planting and harvesting schedules using data-driven approaches '
-          'that account for weather variability and soil conditions.',
-      tags: ['Optimization', 'Agricultural Planning', 'Data Science'],
-    ),
-    ResearchItem(
-      icon: Icons.smart_toy,
-      title: 'RL for Agricultural Decision-Making',
-      description:
-          'Applying reinforcement learning to sequential agricultural decisions — '
-          'from irrigation scheduling to resource allocation.',
-      tags: ['Reinforcement Learning', 'MDP', 'Policy Optimization'],
+          'Investigating the theoretical and empirical computational complexity of '
+          'Random Forest and LightGBM for disease outbreak prediction in resource-limited '
+          'settings - using malaria in Uganda as the primary case study, benchmarked on '
+          'standard CPU hardware to ensure feasibility without specialized infrastructure.',
+      tags: [
+        'Ensemble Learning',
+        'LightGBM',
+        'Public Health',
+        'Complexity Analysis',
+      ],
     ),
   ];
 
@@ -97,6 +105,7 @@ abstract final class AppConstants {
         'NLP',
         'Reinforcement Learning',
         'Time Series Analysis',
+        'Recommender Systems',
       ],
     ),
     SkillCategory(
