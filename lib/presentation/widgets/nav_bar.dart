@@ -147,48 +147,57 @@ class _MobileMenuButton extends StatelessWidget {
       builder: (context) => SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: theme.dividerColor,
-                  borderRadius: BorderRadius.circular(2),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: theme.dividerColor,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              for (final item in AppConstants.navItems)
-                ListTile(
-                  title: Text(item, textAlign: TextAlign.center),
-                  onTap: () {
-                    Navigator.pop(context);
-                    if (item == 'Articles') {
-                      Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation1, animation2) =>
-                              const ArticlesListScreen(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                                return FadeTransition(
-                                  opacity: CurvedAnimation(
-                                    parent: animation,
-                                    curve: Curves.easeOut,
-                                  ),
-                                  child: child,
-                                );
-                              },
-                          transitionDuration: const Duration(milliseconds: 300),
-                        ),
-                      );
-                      return;
-                    }
-                    final key = sectionKeys[item];
-                    if (key != null) scrollToSection(key);
-                  },
-                ),
-            ],
+                const SizedBox(height: 20),
+                for (final item in AppConstants.navItems)
+                  ListTile(
+                    title: Text(item, textAlign: TextAlign.center),
+                    onTap: () {
+                      Navigator.pop(context);
+                      if (item == 'Articles') {
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                                const ArticlesListScreen(),
+                            transitionsBuilder:
+                                (
+                                  context,
+                                  animation,
+                                  secondaryAnimation,
+                                  child,
+                                ) {
+                                  return FadeTransition(
+                                    opacity: CurvedAnimation(
+                                      parent: animation,
+                                      curve: Curves.easeOut,
+                                    ),
+                                    child: child,
+                                  );
+                                },
+                            transitionDuration: const Duration(
+                              milliseconds: 300,
+                            ),
+                          ),
+                        );
+                        return;
+                      }
+                      final key = sectionKeys[item];
+                      if (key != null) scrollToSection(key);
+                    },
+                  ),
+              ],
+            ),
           ),
         ),
       ),
